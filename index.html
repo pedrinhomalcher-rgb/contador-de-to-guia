@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Contador de TO - Guia de Instalação</title>
 
   <style>
@@ -16,6 +17,7 @@
       --primary: #f2572d;
       --primary-dark: #d94820;
       --secondary: #111827;
+      --secondary-light: #1f2937;
       --text: #1f2937;
       --muted: #6b7280;
       --bg: #f5f7fb;
@@ -26,8 +28,12 @@
       --warning-bg: #fff7ed;
       --warning-border: #f97316;
       --warning-text: #9a3412;
-      --card-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
-      --radius: 16px;
+      --border: #e5e7eb;
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
@@ -39,134 +45,152 @@
 
     header {
       background: linear-gradient(135deg, #0f172a, #1f2937);
-      color: var(--white);
-      padding: 70px 20px 60px;
+      color: white;
+      padding: 80px 20px 70px;
       text-align: center;
     }
 
     header h1 {
-      font-size: 46px;
-      margin-bottom: 16px;
+      font-size: 52px;
       font-weight: 800;
+      margin-bottom: 15px;
     }
 
     header p {
-      max-width: 860px;
-      margin: 0 auto;
-      font-size: 18px;
+      max-width: 900px;
+      margin: auto;
+      font-size: 19px;
       color: #d1d5db;
     }
 
     .container {
-      max-width: 1180px;
+      width: 100%;
+      max-width: 1500px;
       margin: 0 auto;
-      padding: 50px 20px 70px;
+      padding: 50px 30px 80px;
     }
 
     .intro-box {
-      background: var(--white);
-      border-radius: var(--radius);
-      box-shadow: var(--card-shadow);
-      padding: 30px;
-      margin-bottom: 40px;
+      background: white;
+      border-radius: 18px;
+      padding: 35px;
+      box-shadow: var(--shadow);
       text-align: center;
+      margin-bottom: 50px;
     }
 
     .intro-box h2 {
-      font-size: 30px;
-      margin-bottom: 12px;
+      font-size: 32px;
       color: var(--secondary);
+      margin-bottom: 12px;
     }
 
     .intro-box p {
-      max-width: 900px;
-      margin: 0 auto;
+      max-width: 950px;
+      margin: auto;
       color: var(--muted);
-      font-size: 16px;
+      font-size: 17px;
     }
 
     .section-title {
       text-align: center;
-      margin-bottom: 30px;
+      margin-bottom: 35px;
     }
 
     .section-title h2 {
-      font-size: 32px;
-      margin-bottom: 10px;
+      font-size: 34px;
       color: var(--secondary);
+      margin-bottom: 10px;
     }
 
     .section-title p {
       color: var(--muted);
-      font-size: 16px;
+      font-size: 17px;
     }
 
     .steps {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 45px;
     }
 
     .card {
-      background: var(--white);
-      border-radius: var(--radius);
-      box-shadow: var(--card-shadow);
-      padding: 28px;
-      transition: transform 0.2s ease;
+      width: 100%;
+      background: white;
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      padding: 38px;
       overflow: hidden;
     }
 
-    .card:hover {
-      transform: translateY(-4px);
+    .step-top {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin-bottom: 22px;
     }
 
     .number {
-      width: 52px;
-      height: 52px;
+      width: 62px;
+      height: 62px;
+      min-width: 62px;
       border-radius: 50%;
       background: var(--primary);
-      color: var(--white);
+      color: white;
       display: flex;
       align-items: center;
       justify-content: center;
       font-weight: 800;
-      font-size: 22px;
-      margin-bottom: 18px;
+      font-size: 27px;
     }
 
-    .card h3 {
-      font-size: 27px;
-      margin-bottom: 12px;
-      color: var(--secondary);
+    .step-heading {
+      flex: 1;
+      background: linear-gradient(
+        135deg,
+        var(--secondary),
+        var(--secondary-light)
+      );
+      color: white;
+      border-radius: 13px;
+      padding: 18px 24px;
+    }
+
+    .step-heading h3 {
+      font-size: 30px;
+      margin: 0;
       line-height: 1.2;
     }
 
     .card p {
       color: var(--muted);
+      font-size: 17px;
       margin-bottom: 12px;
-      font-size: 16px;
     }
 
     .card ul,
     .card ol {
-      margin: 12px 0 14px 22px;
+      margin: 14px 0 18px 25px;
       color: var(--text);
+      font-size: 16px;
     }
 
     .card li {
-      margin-bottom: 8px;
+      margin-bottom: 9px;
     }
 
     .btn-download {
       display: inline-block;
-      margin-top: 10px;
-      margin-bottom: 18px;
+      margin-top: 8px;
+      margin-bottom: 20px;
       background: var(--primary);
-      color: var(--white);
+      color: white;
       text-decoration: none;
-      padding: 14px 22px;
+      padding: 15px 24px;
       border-radius: 10px;
       font-weight: 700;
+      font-size: 16px;
       transition: 0.2s ease;
     }
 
@@ -185,9 +209,8 @@
 
     .info-box {
       border-radius: 12px;
-      padding: 14px 16px;
-      margin-top: 12px;
-      margin-bottom: 16px;
+      padding: 15px 17px;
+      margin: 14px 0 20px;
       font-size: 15px;
     }
 
@@ -205,25 +228,27 @@
 
     .tutorial-image {
       width: 100%;
+      max-width: 1400px;
+      height: auto;
       display: block;
-      margin-top: 18px;
-      border-radius: 14px;
-      border: 1px solid #e5e7eb;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.10);
+      margin: 30px auto 0;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.14);
     }
 
     .flow {
-      margin-top: 60px;
+      margin-top: 65px;
       background: linear-gradient(135deg, #0f172a, #1f2937);
-      color: var(--white);
-      border-radius: 18px;
-      padding: 40px 25px;
+      color: white;
+      border-radius: 20px;
+      padding: 45px 30px;
       text-align: center;
     }
 
     .flow h2 {
-      font-size: 30px;
-      margin-bottom: 26px;
+      font-size: 32px;
+      margin-bottom: 30px;
     }
 
     .flow-items {
@@ -236,59 +261,101 @@
 
     .flow-box {
       background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255,255,255,0.12);
+      border: 1px solid rgba(255, 255, 255, 0.12);
       padding: 16px 22px;
       border-radius: 12px;
-      min-width: 140px;
+      min-width: 145px;
       font-weight: 700;
     }
 
     .arrow {
-      font-size: 26px;
+      font-size: 27px;
       color: #fdba74;
       font-weight: bold;
     }
 
     .final-box {
-      margin-top: 50px;
-      background: var(--white);
-      border-radius: var(--radius);
-      box-shadow: var(--card-shadow);
-      padding: 32px;
+      margin-top: 55px;
+      background: white;
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      padding: 35px;
       text-align: center;
     }
 
     .final-box h2 {
-      font-size: 30px;
+      font-size: 32px;
       margin-bottom: 12px;
       color: var(--secondary);
     }
 
     .final-box p {
+      max-width: 900px;
+      margin: 0 auto 20px;
       color: var(--muted);
-      max-width: 820px;
-      margin: 0 auto 18px;
+      font-size: 17px;
     }
 
     footer {
       background: var(--secondary);
       color: #cbd5e1;
       text-align: center;
-      padding: 24px 16px;
+      padding: 26px 18px;
       font-size: 14px;
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 900px) {
       header h1 {
-        font-size: 34px;
+        font-size: 40px;
+      }
+
+      .container {
+        padding: 35px 18px 60px;
+      }
+
+      .card {
+        padding: 25px;
+      }
+
+      .step-top {
+        align-items: flex-start;
+      }
+
+      .step-heading h3 {
+        font-size: 25px;
+      }
+
+      .tutorial-image {
+        margin-top: 22px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      header {
+        padding: 55px 16px;
+      }
+
+      header h1 {
+        font-size: 32px;
       }
 
       header p {
         font-size: 16px;
       }
 
-      .card h3 {
-        font-size: 24px;
+      .step-top {
+        flex-direction: column;
+      }
+
+      .step-heading {
+        width: 100%;
+      }
+
+      .number {
+        width: 54px;
+        height: 54px;
+        min-width: 54px;
+        font-size: 23px;
       }
 
       .flow-items {
@@ -303,48 +370,64 @@
 </head>
 
 <body>
+
   <header>
     <h1>Contador de TO</h1>
+
     <p>
       Guia completo para instalar, configurar e utilizar o bot responsável
-      pela busca automática de TOs no SPX e envio dos dados para o Google Sheets.
+      pela busca automática de TOs no SPX.
     </p>
   </header>
 
-  <div class="container">
+
+  <main class="container">
 
     <section class="intro-box">
       <h2>Como funciona?</h2>
+
       <p>
         O Contador de TO utiliza a extensão Tampermonkey para executar um script
-        diretamente no SPX. Depois de instalado, o bot realiza a busca das TOs,
-        contabiliza os registros e facilita a consulta das informações no processo.
+        dentro do SPX. Depois de instalado, o bot permite realizar a busca das TOs
+        de forma rápida e visualizar os registros encontrados diretamente no painel.
       </p>
     </section>
 
+
     <section class="section-title">
       <h2>Passo a passo de instalação</h2>
+
       <p>
-        Siga as etapas abaixo para instalar a extensão, liberar scripts,
-        instalar o bot e utilizar o buscador de TOs.
+        Siga cada etapa abaixo na ordem para instalar e utilizar o Contador de TO.
       </p>
     </section>
+
 
     <section class="steps">
 
       <!-- PASSO 1 -->
-      <div class="card">
-        <div class="number">1</div>
-        <h3>Baixar o Tampermonkey</h3>
+      <article class="card">
+
+        <div class="step-top">
+
+          <div class="number">
+            1
+          </div>
+
+          <div class="step-heading">
+            <h3>Baixar o Tampermonkey</h3>
+          </div>
+
+        </div>
 
         <p>
-          O Tampermonkey é a extensão responsável por executar o script
-          do Contador de TO no navegador.
+          O Tampermonkey é a extensão responsável por executar
+          o script do Contador de TO no navegador.
         </p>
 
         <p>
-          Clique no botão abaixo para abrir a página oficial da extensão
-          na Chrome Web Store.
+          Clique no botão abaixo para abrir a página oficial
+          da extensão na Chrome Web Store.
         </p>
 
         <a
@@ -356,7 +439,9 @@
         </a>
 
         <div class="info-box success">
-          Na Chrome Web Store, clique em <strong>Usar no Chrome</strong> e depois em
+          Na Chrome Web Store, clique em
+          <strong>Usar no Chrome</strong>
+          e depois em
           <strong>Adicionar extensão</strong>.
         </div>
 
@@ -365,31 +450,63 @@
           alt="Passo a passo para instalar o Tampermonkey no Chrome"
           class="tutorial-image"
         />
-      </div>
+
+      </article>
+
 
       <!-- PASSO 2 -->
-      <div class="card">
-        <div class="number">2</div>
-        <h3>Permitir Scripts de Usuário</h3>
+      <article class="card">
+
+        <div class="step-top">
+
+          <div class="number">
+            2
+          </div>
+
+          <div class="step-heading">
+            <h3>Permitir Scripts de Usuário</h3>
+          </div>
+
+        </div>
 
         <p>
-          Depois de instalar o Tampermonkey, é necessário liberar a execução
-          de scripts de usuário no Chrome.
+          Depois de instalar o Tampermonkey, é necessário liberar
+          a execução de scripts de usuário no Chrome.
         </p>
 
         <ol>
-          <li>Clique no ícone de <strong>Extensões</strong> no Chrome.</li>
-          <li>Localize o <strong>Tampermonkey</strong>.</li>
-          <li>Clique nos <strong>três pontinhos</strong>.</li>
-          <li>Clique em <strong>Gerenciar extensão</strong>.</li>
-          <li>Procure a opção <strong>Permitir scripts de usuário</strong>.</li>
-          <li>Ative essa opção.</li>
-          <li>Depois, volte para esta página.</li>
+          <li>
+            Clique no ícone de <strong>Extensões</strong> no Chrome.
+          </li>
+
+          <li>
+            Localize o <strong>Tampermonkey</strong>.
+          </li>
+
+          <li>
+            Clique nos <strong>três pontinhos</strong>.
+          </li>
+
+          <li>
+            Clique em <strong>Gerenciar extensão</strong>.
+          </li>
+
+          <li>
+            Procure a opção <strong>Permitir scripts de usuário</strong>.
+          </li>
+
+          <li>
+            Ative essa opção.
+          </li>
+
+          <li>
+            Depois, volte para esta página.
+          </li>
         </ol>
 
         <div class="info-box warning">
-          Ative scripts de usuário somente quando você souber a origem
-          e a finalidade do script que está instalando.
+          Ative scripts de usuário somente quando você souber
+          a origem e a finalidade do script que está instalando.
         </div>
 
         <img
@@ -397,19 +514,33 @@
           alt="Como permitir scripts de usuário no Tampermonkey"
           class="tutorial-image"
         />
-      </div>
+
+      </article>
+
 
       <!-- PASSO 3 -->
-      <div class="card">
-        <div class="number">3</div>
-        <h3>Instalar o Script</h3>
+      <article class="card">
+
+        <div class="step-top">
+
+          <div class="number">
+            3
+          </div>
+
+          <div class="step-heading">
+            <h3>Instalar o Script</h3>
+          </div>
+
+        </div>
 
         <p>
           Agora que o Tampermonkey está instalado e configurado,
           você pode instalar o Contador de TO.
         </p>
 
-        <p>Clique no botão abaixo:</p>
+        <p>
+          Clique no botão abaixo.
+        </p>
 
         <a
           href="contador-to.user.js"
@@ -419,31 +550,47 @@
         </a>
 
         <div class="info-box success">
-          O Tampermonkey deverá abrir automaticamente a tela de instalação do script.
+          O Tampermonkey deverá abrir automaticamente
+          a tela de instalação do script.
         </div>
 
         <p>
-          Na tela do Tampermonkey, clique em <strong>Instalar</strong>.
+          Na tela do Tampermonkey, clique em
+          <strong>Instalar</strong>.
         </p>
 
         <img
           src="03-instalar-script.png"
-          alt="Como instalar o script do Contador de TO no Tampermonkey"
+          alt="Como instalar o script do Contador de TO"
           class="tutorial-image"
         />
-      </div>
+
+      </article>
+
 
       <!-- PASSO 4 -->
-      <div class="card">
-        <div class="number">4</div>
-        <h3>Abrir o SPX</h3>
+      <article class="card">
+
+        <div class="step-top">
+
+          <div class="number">
+            4
+          </div>
+
+          <div class="step-heading">
+            <h3>Abrir o SPX</h3>
+          </div>
+
+        </div>
 
         <p>
           Depois de instalar o script, acesse o SPX normalmente.
         </p>
 
         <p>
-          Faça login com seu <strong>Ops ID</strong> ou com o
+          Faça login utilizando seu
+          <strong>Ops ID</strong>
+          ou com o
           <strong>Google</strong>.
         </p>
 
@@ -464,115 +611,259 @@
           alt="Tela de login do SPX"
           class="tutorial-image"
         />
-      </div>
+
+      </article>
+
 
       <!-- PASSO 5 -->
-      <div class="card">
-        <div class="number">5</div>
-        <h3>Abrir o Bot</h3>
+      <article class="card">
+
+        <div class="step-top">
+
+          <div class="number">
+            5
+          </div>
+
+          <div class="step-heading">
+            <h3>Abrir o Bot e Ativar</h3>
+          </div>
+
+        </div>
 
         <p>
-          Dentro do SPX, abra o Tampermonkey e confirme se o script está ativo.
+          Dentro do SPX, abra o Tampermonkey e confirme
+          se o script está ativo.
         </p>
 
         <p>
-          Quando o script estiver ativo, o botão
-          <strong>SPX TO REPORT</strong> aparecerá no sistema.
+          Quando o script estiver funcionando corretamente,
+          o status deverá aparecer como
+          <strong>Ativado</strong>.
         </p>
 
         <ul>
-          <li>Abra o Tampermonkey</li>
-          <li>Verifique se o status está <strong>Ativado</strong></li>
-          <li>Se necessário, ative o script</li>
-          <li>Abra o botão <strong>SPX TO REPORT</strong></li>
+          <li>
+            Abra o Tampermonkey.
+          </li>
+
+          <li>
+            Confirme se aparece o símbolo verde
+            <strong>Ativado</strong>.
+          </li>
+
+          <li>
+            Caso esteja desligado, clique para ativar.
+          </li>
+
+          <li>
+            Volte para o SPX.
+          </li>
+
+          <li>
+            Localize o botão
+            <strong>SPX TO REPORT</strong>.
+          </li>
+
+          <li>
+            Clique nele para abrir o painel do bot.
+          </li>
         </ul>
 
         <div class="info-box success">
-          Com o script ativo, o bot ficará pronto para uso no SPX.
+          Com o script ativo, o botão
+          <strong>SPX TO REPORT</strong>
+          deverá aparecer automaticamente dentro do SPX.
         </div>
 
         <img
           src="05-abrir-bot-ativar-spx.png"
-          alt="Como abrir o bot e ativar o script no SPX"
+          alt="Como ativar o bot e abrir o SPX TO REPORT"
           class="tutorial-image"
         />
-      </div>
+
+      </article>
+
 
       <!-- PASSO 6 -->
-      <div class="card">
-        <div class="number">6</div>
-        <h3>Buscar TOs</h3>
+      <article class="card">
+
+        <div class="step-top">
+
+          <div class="number">
+            6
+          </div>
+
+          <div class="step-heading">
+            <h3>Buscar TOs</h3>
+          </div>
+
+        </div>
 
         <p>
-          Com o painel aberto, selecione a <strong>data inicial</strong>
-          e a <strong>data final</strong>.
+          Com o painel
+          <strong>SPX TO REPORT</strong>
+          aberto, selecione o período que deseja consultar.
         </p>
 
         <p>
-          Depois clique no botão <strong>BUSCAR TOs</strong>.
-        </p>
-
-        <p>
-          O sistema realizará a busca automática e exibirá:
+          Escolha:
         </p>
 
         <ul>
-          <li>Status da busca</li>
-          <li>Total de TOs encontradas</li>
-          <li>Últimos TOs localizados</li>
+          <li>
+            <strong>Data inicial</strong>
+          </li>
+
+          <li>
+            <strong>Data final</strong>
+          </li>
+        </ul>
+
+        <p>
+          Depois clique no botão:
+        </p>
+
+        <p>
+          <strong>BUSCAR TOs</strong>
+        </p>
+
+        <p>
+          O bot realizará a consulta e exibirá automaticamente:
+        </p>
+
+        <ul>
+          <li>
+            Status da busca
+          </li>
+
+          <li>
+            Total de TOs encontradas
+          </li>
+
+          <li>
+            Últimos TOs encontrados
+          </li>
+
+          <li>
+            Status de cada TO
+          </li>
+
+          <li>
+            Quantidade de volumes
+          </li>
         </ul>
 
         <div class="info-box success">
-          Quando a busca for concluída, você verá a confirmação
-          e o total de TOs processadas.
+          Quando aparecer
+          <strong>Busca concluída</strong>,
+          a consulta foi finalizada com sucesso.
         </div>
 
         <img
           src="06-buscar-tos-funcionando.png"
-          alt="Buscador de TOs funcionando no SPX TO REPORT"
+          alt="Contador de TO funcionando no SPX"
           class="tutorial-image"
         />
-      </div>
+
+      </article>
 
     </section>
+
 
     <section class="flow">
-      <h2>Fluxo do Processo</h2>
+
+      <h2>Fluxo do Contador de TO</h2>
 
       <div class="flow-items">
-        <div class="flow-box">Tampermonkey</div>
-        <div class="arrow">→</div>
-        <div class="flow-box">Script</div>
-        <div class="arrow">→</div>
-        <div class="flow-box">SPX</div>
-        <div class="arrow">→</div>
-        <div class="flow-box">SPX TO REPORT</div>
-        <div class="arrow">→</div>
-        <div class="flow-box">Buscar TOs</div>
-        <div class="arrow">→</div>
-        <div class="flow-box">Consulta dos dados</div>
+
+        <div class="flow-box">
+          Tampermonkey
+        </div>
+
+        <div class="arrow">
+          →
+        </div>
+
+        <div class="flow-box">
+          Script
+        </div>
+
+        <div class="arrow">
+          →
+        </div>
+
+        <div class="flow-box">
+          SPX
+        </div>
+
+        <div class="arrow">
+          →
+        </div>
+
+        <div class="flow-box">
+          SPX TO REPORT
+        </div>
+
+        <div class="arrow">
+          →
+        </div>
+
+        <div class="flow-box">
+          Buscar TOs
+        </div>
+
+        <div class="arrow">
+          →
+        </div>
+
+        <div class="flow-box">
+          Resultado
+        </div>
+
       </div>
+
     </section>
+
 
     <section class="final-box">
+
       <h2>Instalação concluída</h2>
+
       <p>
-        Após concluir todas as etapas, o Contador de TO estará pronto para uso.
-        Sempre que necessário, basta abrir o SPX, acessar o painel
-        <strong>SPX TO REPORT</strong> e realizar a busca das TOs.
+        Depois de concluir todos os passos,
+        o Contador de TO estará pronto para uso.
+        Sempre que precisar realizar uma consulta,
+        basta acessar o SPX, abrir o
+        <strong>SPX TO REPORT</strong>
+        e selecionar o período desejado.
       </p>
 
-      <div class="info-box success" style="display:inline-block; text-align:left; max-width:700px;">
-        <strong>Resumo final:</strong><br>
-        Tampermonkey instalado → scripts habilitados → script instalado →
-        acesso ao SPX → bot ativado → busca de TOs funcionando.
+      <div
+        class="info-box success"
+        style="
+          max-width: 900px;
+          margin: 20px auto 0;
+          text-align: center;
+        "
+      >
+        <strong>
+          Tampermonkey instalado
+          → Scripts liberados
+          → Script instalado
+          → SPX acessado
+          → Bot ativado
+          → Busca de TOs concluída
+        </strong>
       </div>
+
     </section>
 
-  </div>
+  </main>
+
 
   <footer>
-    Contador de TO • Guia de instalação e utilização
+    Contador de TO • SPX TO REPORT • Guia de instalação e utilização
   </footer>
+
 </body>
 </html>
