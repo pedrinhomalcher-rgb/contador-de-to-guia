@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Contador de TO - Guia de Instalação</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f5f7fb;
+      color: #1f2937;
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, #111827, #1f2937);
+      color: white;
+      padding: 70px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 42px;
+      margin-bottom: 15px;
+    }
+
+    header p {
+      font-size: 18px;
+      color: #d1d5db;
+      max-width: 750px;
+      margin: auto;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 50px 20px;
+    }
+
+    .intro {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .intro h2 {
+      font-size: 30px;
+      margin-bottom: 15px;
+    }
+
+    .intro p {
+      max-width: 800px;
+      margin: auto;
+      color: #4b5563;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 14px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .number {
+      width: 45px;
+      height: 45px;
+      background: #ff5a1f;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-weight: bold;
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+
+    .card h3 {
+      margin-bottom: 12px;
+      font-size: 21px;
+    }
+
+    .card p {
+      color: #6b7280;
+    }
+
+    .flow {
+      margin-top: 70px;
+      background: #111827;
+      color: white;
+      padding: 45px 25px;
+      border-radius: 16px;
+      text-align: center;
+    }
+
+    .flow h2 {
+      margin-bottom: 30px;
+    }
+
+    .flow-items {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      align-items: center;
+    }
+
+    .flow-box {
+      background: #1f2937;
+      padding: 15px 22px;
+      border-radius: 10px;
+    }
+
+    .arrow {
+      font-size: 25px;
+      color: #ff5a1f;
+    }
+
+    footer {
+      margin-top: 70px;
+      background: #111827;
+      color: #9ca3af;
+      text-align: center;
+      padding: 25px;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 32px;
+      }
+
+      .arrow {
+        transform: rotate(90deg);
+      }
+
+      .flow-items {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>Contador de TO</h1>
+
+  <p>
+    Guia completo para instalação, configuração e utilização
+    do bot responsável pela busca e envio automático das TOs.
+  </p>
+</header>
+
+<div class="container">
+
+  <section class="intro">
+    <h2>Como funciona?</h2>
+
+    <p>
+      O Contador de TO utiliza uma extensão no navegador e um script
+      que realiza a leitura das informações no SPX, executa a busca
+      das TOs e envia os dados automaticamente para uma planilha.
+    </p>
+  </section>
+
+  <section class="steps">
+
+    <div class="card">
+      <div class="number">1</div>
+
+      <h3>Instalar o Tampermonkey</h3>
+
+      <p>
+        Instale a extensão Tampermonkey no Google Chrome.
+        Ela será responsável por executar o script do Contador de TO.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="number">2</div>
+
+      <h3>Permitir scripts de usuário</h3>
+
+      <p>
+        Acesse as configurações da extensão no Chrome e habilite
+        a opção que permite a execução de scripts de usuário.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="number">3</div>
+
+      <h3>Instalar o Script</h3>
+
+      <p>
+        Abra o painel do Tampermonkey, crie um novo script,
+        cole o código do Contador de TO e salve.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="number">4</div>
+
+      <h3>Abrir o SPX</h3>
+
+      <p>
+        Entre no SPX normalmente. Com o script ativo,
+        o painel do bot ficará disponível na página.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="number">5</div>
+
+      <h3>Buscar as TOs</h3>
+
+      <p>
+        No SPX TO Report, utilize o botão de busca do bot.
+        O sistema fará a leitura e contabilização das TOs.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="number">6</div>
+
+      <h3>Enviar para a Planilha</h3>
+
+      <p>
+        Após a busca, os dados são enviados automaticamente
+        para a base configurada no Google Sheets.
+      </p>
+    </div>
+
+  </section>
+
+  <section class="flow">
+
+    <h2>Fluxo do Processo</h2>
+
+    <div class="flow-items">
+
+      <div class="flow-box">Tampermonkey</div>
+
+      <div class="arrow">→</div>
+
+      <div class="flow-box">Script</div>
+
+      <div class="arrow">→</div>
+
+      <div class="flow-box">SPX</div>
+
+      <div class="arrow">→</div>
+
+      <div class="flow-box">TO Report</div>
+
+      <div class="arrow">→</div>
+
+      <div class="flow-box">Buscar TO</div>
+
+      <div class="arrow">→</div>
+
+      <div class="flow-box">Google Sheets</div>
+
+    </div>
+
+  </section>
+
+</div>
+
+<footer>
+  Contador de TO • Guia de instalação e utilização
+</footer>
+
+</body>
+</html>
