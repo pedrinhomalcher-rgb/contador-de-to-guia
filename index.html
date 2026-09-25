@@ -28,14 +28,14 @@
     }
 
     header h1 {
-      font-size: 42px;
+      font-size: 44px;
       margin-bottom: 15px;
     }
 
     header p {
       font-size: 18px;
       color: #d1d5db;
-      max-width: 750px;
+      max-width: 780px;
       margin: auto;
     }
 
@@ -56,14 +56,15 @@
     }
 
     .intro p {
-      max-width: 800px;
+      max-width: 850px;
       margin: auto;
       color: #4b5563;
+      font-size: 16px;
     }
 
     .steps {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 25px;
     }
 
@@ -82,7 +83,7 @@
     .number {
       width: 45px;
       height: 45px;
-      background: #ff5a1f;
+      background: #ee4d2d;
       color: white;
       display: flex;
       align-items: center;
@@ -100,6 +101,60 @@
 
     .card p {
       color: #6b7280;
+      margin-bottom: 10px;
+    }
+
+    .card ol,
+    .card ul {
+      margin-top: 15px;
+      padding-left: 20px;
+      color: #4b5563;
+    }
+
+    .card li {
+      margin-bottom: 8px;
+    }
+
+    .btn-download {
+      display: inline-block;
+      margin-top: 18px;
+      background: #ee4d2d;
+      color: white;
+      text-decoration: none;
+      padding: 13px 22px;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: 0.2s;
+      cursor: pointer;
+    }
+
+    .btn-download:hover {
+      transform: translateY(-2px);
+      opacity: 0.92;
+    }
+
+    .btn-dark {
+      background: #111827;
+    }
+
+    .warning {
+      background: #fff7ed;
+      border-left: 4px solid #f97316;
+      padding: 14px;
+      border-radius: 8px;
+      margin-top: 15px;
+      color: #7c2d12;
+      font-size: 14px;
+    }
+
+    .success {
+      background: #ecfdf5;
+      border-left: 4px solid #16a34a;
+      padding: 14px;
+      border-radius: 8px;
+      margin-top: 15px;
+      color: #166534;
+      font-size: 14px;
     }
 
     .flow {
@@ -127,11 +182,27 @@
       background: #1f2937;
       padding: 15px 22px;
       border-radius: 10px;
+      min-width: 130px;
     }
 
     .arrow {
       font-size: 25px;
-      color: #ff5a1f;
+      color: #ee4d2d;
+    }
+
+    .section-title {
+      margin-top: 70px;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .section-title h2 {
+      font-size: 30px;
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      color: #6b7280;
     }
 
     footer {
@@ -147,12 +218,16 @@
         font-size: 32px;
       }
 
+      .flow-items {
+        flex-direction: column;
+      }
+
       .arrow {
         transform: rotate(90deg);
       }
 
-      .flow-items {
-        flex-direction: column;
+      .card {
+        padding: 24px;
       }
     }
   </style>
@@ -164,129 +239,420 @@
   <h1>Contador de TO</h1>
 
   <p>
-    Guia completo para instalação, configuração e utilização
-    do bot responsável pela busca e envio automático das TOs.
+    Guia completo para instalar, configurar e utilizar
+    o bot responsável pela busca automática de TOs no SPX
+    e envio dos dados para o Google Sheets.
   </p>
 </header>
 
 <div class="container">
 
   <section class="intro">
+
     <h2>Como funciona?</h2>
 
     <p>
-      O Contador de TO utiliza uma extensão no navegador e um script
-      que realiza a leitura das informações no SPX, executa a busca
-      das TOs e envia os dados automaticamente para uma planilha.
+      O Contador de TO utiliza a extensão Tampermonkey para executar
+      um script diretamente no SPX. Depois de instalado, o bot realiza
+      a busca das TOs, contabiliza os registros e envia as informações
+      automaticamente para a planilha configurada.
     </p>
+
   </section>
 
   <section class="steps">
 
+    <!-- PASSO 1 -->
+
     <div class="card">
+
       <div class="number">1</div>
 
-      <h3>Instalar o Tampermonkey</h3>
+      <h3>Baixar o Tampermonkey</h3>
 
       <p>
-        Instale a extensão Tampermonkey no Google Chrome.
-        Ela será responsável por executar o script do Contador de TO.
+        O Tampermonkey é a extensão responsável por executar
+        o script do Contador de TO no navegador.
       </p>
+
+      <p>
+        Clique no botão abaixo para abrir a página oficial
+        da extensão na Chrome Web Store.
+      </p>
+
+      <a
+        href="https://chromewebstore.google.com/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=pt-BR"
+        target="_blank"
+        class="btn-download"
+      >
+        Download da Extensão
+      </a>
+
+      <div class="success">
+        Na Chrome Web Store, clique em
+        <strong>Usar no Chrome</strong> e depois
+        <strong>Adicionar extensão</strong>.
+      </div>
+
     </div>
 
+
+    <!-- PASSO 2 -->
+
     <div class="card">
+
       <div class="number">2</div>
 
-      <h3>Permitir scripts de usuário</h3>
+      <h3>Permitir Scripts de Usuário</h3>
 
       <p>
-        Acesse as configurações da extensão no Chrome e habilite
-        a opção que permite a execução de scripts de usuário.
+        Depois de instalar o Tampermonkey, é necessário liberar
+        a execução de scripts de usuário no Chrome.
       </p>
+
+      <ol>
+        <li>
+          Clique no ícone de <strong>Extensões</strong> no Chrome.
+        </li>
+
+        <li>
+          Localize o <strong>Tampermonkey</strong>.
+        </li>
+
+        <li>
+          Clique nos <strong>três pontinhos</strong>.
+        </li>
+
+        <li>
+          Clique em <strong>Gerenciar extensão</strong>.
+        </li>
+
+        <li>
+          Procure a opção
+          <strong>Permitir scripts de usuário</strong>.
+        </li>
+
+        <li>
+          Ative essa opção.
+        </li>
+
+        <li>
+          Depois, volte para esta página.
+        </li>
+      </ol>
+
+      <div class="warning">
+        Ative scripts de usuário somente quando você souber
+        a origem e finalidade do script que está instalando.
+      </div>
+
     </div>
 
+
+    <!-- PASSO 3 -->
+
     <div class="card">
+
       <div class="number">3</div>
 
       <h3>Instalar o Script</h3>
 
       <p>
-        Abra o painel do Tampermonkey, crie um novo script,
-        cole o código do Contador de TO e salve.
+        Agora que o Tampermonkey está instalado e configurado,
+        você pode instalar o Contador de TO.
       </p>
+
+      <p>
+        Clique no botão abaixo.
+      </p>
+
+      <a
+        href="contador-to.user.js"
+        class="btn-download"
+      >
+        Instalar Script
+      </a>
+
+      <div class="success">
+        O Tampermonkey deverá abrir automaticamente
+        a tela de instalação do script.
+      </div>
+
+      <p style="margin-top:15px;">
+        Na tela do Tampermonkey, clique em:
+      </p>
+
+      <p>
+        <strong>Instalar</strong>
+      </p>
+
     </div>
 
+
+    <!-- PASSO 4 -->
+
     <div class="card">
+
       <div class="number">4</div>
 
       <h3>Abrir o SPX</h3>
 
       <p>
-        Entre no SPX normalmente. Com o script ativo,
-        o painel do bot ficará disponível na página.
+        Depois de instalar o script, acesse o SPX normalmente.
       </p>
+
+      <p>
+        O script foi configurado para funcionar dentro do ambiente SPX.
+      </p>
+
+      <div class="success">
+        Se a instalação estiver correta, o botão
+        <strong>SPX TO REPORT</strong>
+        aparecerá automaticamente na página.
+      </div>
+
     </div>
 
+
+    <!-- PASSO 5 -->
+
     <div class="card">
+
       <div class="number">5</div>
+
+      <h3>Abrir o Bot</h3>
+
+      <p>
+        Dentro do SPX, localize o botão:
+      </p>
+
+      <p>
+        <strong>SPX TO REPORT</strong>
+      </p>
+
+      <p>
+        Clique nele para abrir o painel do Contador de TO.
+      </p>
+
+      <p>
+        No painel você poderá visualizar:
+      </p>
+
+      <ul>
+        <li>Data inicial</li>
+        <li>Data final</li>
+        <li>Status da automação</li>
+        <li>Próxima atualização</li>
+        <li>Últimos TOs encontrados</li>
+      </ul>
+
+    </div>
+
+
+    <!-- PASSO 6 -->
+
+    <div class="card">
+
+      <div class="number">6</div>
 
       <h3>Buscar as TOs</h3>
 
       <p>
-        No SPX TO Report, utilize o botão de busca do bot.
-        O sistema fará a leitura e contabilização das TOs.
+        Escolha a data inicial e a data final desejada.
       </p>
-    </div>
-
-    <div class="card">
-      <div class="number">6</div>
-
-      <h3>Enviar para a Planilha</h3>
 
       <p>
-        Após a busca, os dados são enviados automaticamente
-        para a base configurada no Google Sheets.
+        Depois clique no botão:
       </p>
+
+      <p>
+        <strong>ATUALIZAR AGORA</strong>
+      </p>
+
+      <p>
+        O bot fará a busca das TOs diretamente no SPX.
+      </p>
+
+      <div class="success">
+        Durante a execução, o painel mostrará
+        quantas TOs já foram encontradas.
+      </div>
+
+    </div>
+
+
+    <!-- PASSO 7 -->
+
+    <div class="card">
+
+      <div class="number">7</div>
+
+      <h3>Atualização Automática</h3>
+
+      <p>
+        O Contador de TO possui automação integrada.
+      </p>
+
+      <p>
+        Depois de ativado, o bot realiza novas buscas automaticamente
+        em intervalos definidos pelo sistema.
+      </p>
+
+      <p>
+        O painel exibirá:
+      </p>
+
+      <ul>
+        <li>Automação ativa ou pausada</li>
+        <li>Última atualização</li>
+        <li>Próxima execução</li>
+        <li>Tempo restante</li>
+      </ul>
+
+    </div>
+
+
+    <!-- PASSO 8 -->
+
+    <div class="card">
+
+      <div class="number">8</div>
+
+      <h3>Envio para Google Sheets</h3>
+
+      <p>
+        Depois que as TOs forem encontradas,
+        os registros são enviados automaticamente
+        para a planilha configurada.
+      </p>
+
+      <div class="success">
+        Quando o envio for concluído,
+        o bot mostrará a mensagem:
+        <strong>PLANILHA ATUALIZADA</strong>.
+      </div>
+
+    </div>
+
+
+    <!-- PASSO 9 -->
+
+    <div class="card">
+
+      <div class="number">9</div>
+
+      <h3>Exportar CSV</h3>
+
+      <p>
+        Caso seja necessário utilizar os dados fora da planilha,
+        também é possível exportar as TOs encontradas.
+      </p>
+
+      <p>
+        Clique em:
+      </p>
+
+      <p>
+        <strong>EXPORTAR CSV</strong>
+      </p>
+
+      <p>
+        O arquivo será gerado diretamente no navegador.
+      </p>
+
     </div>
 
   </section>
+
+
+  <!-- FLUXO -->
 
   <section class="flow">
 
-    <h2>Fluxo do Processo</h2>
+    <h2>Fluxo do Contador de TO</h2>
 
     <div class="flow-items">
 
-      <div class="flow-box">Tampermonkey</div>
+      <div class="flow-box">
+        Tampermonkey
+      </div>
 
-      <div class="arrow">→</div>
+      <div class="arrow">
+        →
+      </div>
 
-      <div class="flow-box">Script</div>
+      <div class="flow-box">
+        Script
+      </div>
 
-      <div class="arrow">→</div>
+      <div class="arrow">
+        →
+      </div>
 
-      <div class="flow-box">SPX</div>
+      <div class="flow-box">
+        SPX
+      </div>
 
-      <div class="arrow">→</div>
+      <div class="arrow">
+        →
+      </div>
 
-      <div class="flow-box">TO Report</div>
+      <div class="flow-box">
+        SPX TO Report
+      </div>
 
-      <div class="arrow">→</div>
+      <div class="arrow">
+        →
+      </div>
 
-      <div class="flow-box">Buscar TO</div>
+      <div class="flow-box">
+        Busca das TOs
+      </div>
 
-      <div class="arrow">→</div>
+      <div class="arrow">
+        →
+      </div>
 
-      <div class="flow-box">Google Sheets</div>
+      <div class="flow-box">
+        Google Sheets
+      </div>
 
     </div>
 
   </section>
 
+
+  <!-- RESUMO -->
+
+  <section class="section-title">
+
+    <h2>Instalação concluída</h2>
+
+    <p>
+      Após concluir todos os passos, o Contador de TO
+      estará pronto para utilização.
+    </p>
+
+  </section>
+
+  <div class="success" style="max-width:800px;margin:auto;text-align:center;">
+
+    Tampermonkey instalado
+    → Script instalado
+    → SPX aberto
+    → Bot ativo
+    → TOs coletadas
+    → Planilha atualizada
+
+  </div>
+
 </div>
 
+
 <footer>
-  Contador de TO • Guia de instalação e utilização
+
+  Contador de TO • SPX TO REPORT • Guia de instalação
+
 </footer>
 
 </body>
